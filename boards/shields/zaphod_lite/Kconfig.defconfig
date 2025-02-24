@@ -7,11 +7,12 @@ config ZMK_KEYBOARD_NAME
     default "Zaphod Lite"
 
 config SPI
-	default y
+    default y
 
+# Configuración de pantalla (manteniendo tu setup actual)
 config ZMK_DISPLAY
-	select LV_USE_CONT
-	select LV_FONT_MONTSERRAT_26
+    select LV_USE_CONT
+    select LV_FONT_MONTSERRAT_26
 
 if ZMK_DISPLAY
 
@@ -19,35 +20,89 @@ config SYSTEM_WORKQUEUE_STACK_SIZE
     default 2048
 
 config LV_Z_MEM_POOL_SIZE
-     default 4096
+    default 4096
 
 choice LV_FONT_DEFAULT
     default LV_FONT_DEFAULT_MONTSERRAT_26
-
 endchoice
 
 choice ZMK_LV_FONT_DEFAULT_SMALL
     default ZMK_LV_FONT_DEFAULT_SMALL_MONTSERRAT_26
-
 endchoice
 
 config LS0XX
-	default y
+    default y
 
 config LV_Z_BITS_PER_PIXEL
-	default 1
+    default 1
 
 choice LV_COLOR_DEPTH
-	default LV_COLOR_DEPTH_1
-
+    default LV_COLOR_DEPTH_1
 endchoice
 
 config LV_DPI_DEF
-	default 30
+    default 30
 
 config LV_Z_VDB_SIZE
-	default 16
+    default 16
 
 endif # ZMK_DISPLAY
+
+# ========================================
+# For MacOS 
+# ========================================
+config ZMK_USB
+    default y
+
+config ZMK_BLE
+    default y
+
+config ZMK_BATTERY_REPORTING
+    default y
+
+config ZMK_BATTERY_REPORT_INTERVAL
+    default 60000
+
+config ZMK_SLEEP
+    default y
+
+config ZMK_IDLE_SLEEP_TIMEOUT
+    default 900000
+
+config BT_CTLR_TX_PWR_PLUS_8
+    default y
+
+config ZMK_HID_CONSUMER_REPORT_USAGES_BASIC
+    default y
+
+config ZMK_MACRO_DEFAULT_WAIT_MS
+    default 20
+
+config ZMK_HID_REPORT_TYPE_NKRO
+    default y
+
+config BT_MAX_CONN
+    default 3
+
+config BT_MAX_PAIRED
+    default 3
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_EXT_POWER
+    default y
+
+config ZMK_BEHAVIORS_QUEUE_SIZE
+    default 256
+
+config ZMK_KEY_OVERLOADS
+    default y
+
+config ZMK_KEY_OVERLOADS_MAX_COMBINED_OVERLOADS
+    default 6
 
 endif # SHIELD_ZAPHOD_LITE
